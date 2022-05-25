@@ -12,35 +12,54 @@
     <div id="principal">
         <table align="center">
             <tr>
-                <td id="pantalla" colspan="5">0</td>
+                <td id="pantalla" colspan="5"></td>
             </tr>
             <tr>
-                <td><button>7</button></td>
-                <td><button>8</button></td>
-                <td><button>9</button></td>
-                <td><button><</button></td>
-                <td><button>DEL</button></td>
+                <td><button onclick="picar(this)">7</button></td>
+                <td><button onclick="picar(this)">8</button></td>
+                <td><button onclick="picar(this)">9</button></td>
+                <td><button onclick="picar(this)"><</button></td>
+                <td><button onclick="picar(this)">DEL</button></td>
             </tr>
             <tr>
-                <td><button>4</button></td>
-                <td><button>5</button></td>
-                <td><button>6</button></td>
-                <td><button>/</button></td>
-                <td><button>x</button></td>
+                <td><button onclick="picar(this)">4</button></td>
+                <td><button onclick="picar(this)">5</button></td>
+                <td><button onclick="picar(this)">6</button></td>
+                <td><button onclick="picar(this)">/</button></td>
+                <td><button onclick="picar(this)">*</button></td>
             </tr>
             <tr>
-                <td><button>1</button></td>
-                <td><button>2</button></td>
-                <td><button>3</button></td>
-                <td><button>+</button></td>
-                <td><button>-</button></td>
+                <td><button onclick="picar(this)">1</button></td>
+                <td><button onclick="picar(this)">2</button></td>
+                <td><button onclick="picar(this)">3</button></td>
+                <td><button onclick="picar(this)">+</button></td>
+                <td><button onclick="picar(this)">-</button></td>
             </tr>
             <tr>
-                <td><button>.</button></td>
-                <td><button>0</button></td>
-                <td colspan="3"><button id="igual">=</button></td>
+                <td><button onclick="picar(this)">.</button></td>
+                <td><button onclick="picar(this)">0</button></td>
+                <td colspan="3"><button id="igual" onclick="picar(this)">=</button></td>
             </tr>
         </table>
     </div>
+
+    <script>
+        const picar = (b) => {
+            // console.log(b);
+            let contenido = b.textContent;
+
+            if (contenido != "=" && contenido != "DEL"){
+                pantalla.innerHTML += contenido;
+            }
+            else if(contenido == "="){
+                let res = eval(pantalla.textContent);
+                pantalla.innerHTML = res;
+            }
+            else{
+                pantalla.innerHTML = "";
+            }
+        }
+
+    </script>
 </body>
 </html>
