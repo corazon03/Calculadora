@@ -48,11 +48,15 @@
             // console.log(b);
             let contenido = b.textContent;
 
-            if (contenido != "=" && contenido != "DEL"){
+            if (contenido != "=" && contenido != "DEL" && contenido != "<"){
                 pantalla.innerHTML += contenido;
             }
             else if(contenido == "="){
                 let res = eval(pantalla.textContent);
+                pantalla.innerHTML = res;
+            }
+            else if(contenido == "<"){
+                let res = pantalla.textContent.slice(0,-1);
                 pantalla.innerHTML = res;
             }
             else{
